@@ -10,6 +10,10 @@
   padding: 10px;
 }
 
+.done {
+  background: gray;
+}
+
 .inputAndButton {
   margin: 5px 0px;
   padding: 10px;

@@ -9,28 +9,48 @@ class App extends React.Component{
     super(props);
     this.state = {
       input: "",
-      todolist: ['asd', 'adf88'],
+      todolist: [
+        {id: Math.random(), value: "Hello", done: false}, 
+        {id: Math.random(), value: "World", done: true}
+      ]
     };
   }
 
+  // store input value
   imputChangeHandler = (value) => {
       this.setState({input: value})
   }
-//add new Items
+
+  //add new Items 
   addTodoItems = () => {
     const {input} = this.state;
 
-    this.setState((state) => ({
-      todolist: state.todolist.concat(input)
+    this.setState(state => ({
+      todolist: state.todolist.concat({id: Math.random(), value: input, done: false})
     }));
   }
 
-  itemRomoveHandler = (index) => {
-    const newList = [...this.state.todolist];
-    newList.splice(index, 1);
-    
+
+  // remove item from list
+  itemRomoveHandler = (key) => {
+    console.log(key)
+    const newList = this.state.todolist.filter(item => {
+      return item.id !== +key;
+    });  
+    console.log(newList)
     this.setState({todolist: newList});
   }
+
+  //
+  itmeDoneHandler = (key) => {
+    const newList = [...this.state.todolist]
+    newList.forEach(item => {
+      if(item.id === +key) item.done = !item.done
+    })
+
+    this.setState({todolist: newList});
+  }
+
 
   render() {
     const {input, todolist} = this.state;
@@ -43,7 +63,10 @@ class App extends React.Component{
           <button onClick={this.addTodoItems}>add to do</button>
         </div>
 
-        <Todolist todoItems={todolist} onItemRemove={this.itemRomoveHandler}/>
+        <Todolist 
+          todoItems={todolist} 
+          onItemRemove={this.itemRomoveHandler}
+          onItemDone={this.itmeDoneHandler}/>
       </div>
    )
   }
