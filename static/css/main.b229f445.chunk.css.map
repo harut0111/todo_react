@@ -1,1 +1,0 @@
-{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,KACE,iBAAkB,CAClB,SAAU,CACV,qBAAsB,CACtB,WACF,CAEA,UACE,YAAa,CACb,sBACF","file":"main.b229f445.chunk.css","sourcesContent":[".App {\n  text-align: center;\n  width: 80%;\n  border: 2px dashed red;\n  margin: auto;\n}\n\n.todoList {\n  height: 150px;\n  border: 1px dashed blue;\n}\n\n"]}
