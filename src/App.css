@@ -6,7 +6,27 @@
 }
 
 .todoList {
-  height: 150px;
   border: 1px dashed blue;
+  padding: 10px;
 }
 
+.inputAndButton {
+  margin: 5px 0px;
+  padding: 10px;
+  border: 1px dashed green;
+}
+
+span {
+  float: right;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+}
