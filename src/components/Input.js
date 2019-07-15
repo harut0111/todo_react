@@ -37,8 +37,8 @@ export default function FilledTextFields(props) {
             inputProps={{'aria-label': 'Description', }}
             
             //set by me
-            multiline={true}
             autoFocus
+            /* multiline={true} */
             value={inputVal}
             onChange = {handleChange}
             onKeyDown={handleEnterPress}
