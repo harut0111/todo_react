@@ -3,6 +3,7 @@ import React from 'react';
 import Input from './components/Input.js';
 import Todolist from './components/Todolist.js';
 
+
 class App extends React.Component{
 
   constructor(props) {
@@ -63,9 +64,9 @@ class App extends React.Component{
           <Input 
             inputVal={input} 
             onInputChange={this.imputChangeHandler}
-            onEnterPress={this.addTodoItems}/>
-          <button 
-            onClick={this.addTodoItems}>add to do</button>
+            onEnterPress={this.addTodoItems}
+            onBtnClick={this.addTodoItems}
+            />
         </div>
 
         <Todolist 

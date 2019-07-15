@@ -27,9 +27,9 @@
 }
 
 .inputAndButton {
-  margin: 5px 0px;
   padding: 10px;
   border: 1px dashed green;
+  display: flex;
 }
 
 button {
