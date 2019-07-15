@@ -10,8 +10,8 @@ class App extends React.Component{
     this.state = {
       input: "",
       todolist: [
-        {id: Math.random(), value: "Hello", done: false}, 
-        {id: Math.random(), value: "World", done: true}
+        {id: Math.random(), value: "Hello World", done: false}, 
+        {id: Math.random(), value: "How are you?", done: true}
       ]
     };
   }
@@ -26,12 +26,13 @@ class App extends React.Component{
     const {input} = this.state;
 
     this.setState(state => ({
-      todolist: state.todolist.concat({id: Math.random(), value: input, done: false})
+      todolist: state.todolist.concat({id: Math.random(), value: input, done: false}),
+      input: ""
     }));
   }
 
 
-  // remove item from list
+  // remove item from list 
   itemRomoveHandler = (key) => {
     console.log(key)
     const newList = this.state.todolist.filter(item => {
@@ -41,8 +42,8 @@ class App extends React.Component{
     this.setState({todolist: newList});
   }
 
-  //
-  itmeDoneHandler = (key) => {
+  // mark item as done
+  itemDoneHandler = (key) => {
     const newList = [...this.state.todolist]
     newList.forEach(item => {
       if(item.id === +key) item.done = !item.done
@@ -51,7 +52,7 @@ class App extends React.Component{
     this.setState({todolist: newList});
   }
 
-
+  
   render() {
     const {input, todolist} = this.state;
     return (
@@ -59,14 +60,18 @@ class App extends React.Component{
         <h1>To Do List</h1>
 
         <div className="inputAndButton">
-          <Input inputVal={input} onInputChange={this.imputChangeHandler}/>
-          <button onClick={this.addTodoItems}>add to do</button>
+          <Input 
+            inputVal={input} 
+            onInputChange={this.imputChangeHandler}
+            onEnterPress={this.addTodoItems}/>
+          <button 
+            onClick={this.addTodoItems}>add to do</button>
         </div>
 
         <Todolist 
           todoItems={todolist} 
           onItemRemove={this.itemRomoveHandler}
-          onItemDone={this.itmeDoneHandler}/>
+          onItemDone={this.itemDoneHandler}/>
       </div>
    )
   }

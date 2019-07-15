@@ -9,7 +9,7 @@ class Todolist extends React.Component {
             ) : (
             this.props.onItemRemove(e.target.parentElement.id) );    
     }
-
+    
     render() {
         const { todoItems } = this.props;
    

@@ -1,3 +1,13 @@
+* {
+  box-sizing: border-box;
+ /*  background: black; */
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
 .App {
   text-align: center;
   width: 50%;
@@ -11,13 +21,19 @@
 }
 
 .done {
-  background: gray;
+  background: rgb(182, 171, 171);
+  text-decoration: line-through;
+  
 }
 
 .inputAndButton {
   margin: 5px 0px;
   padding: 10px;
   border: 1px dashed green;
+}
+
+button {
+  cursor: pointer;
 }
 
 span {
@@ -33,4 +49,5 @@ ul {
 li {
   list-style-type: none;
   margin: 0;
+  cursor: pointer;
 }
