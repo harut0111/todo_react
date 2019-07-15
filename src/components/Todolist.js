@@ -15,7 +15,7 @@ class Todolist extends React.Component {
    
         const items = todoItems.map(item => {
             if(item.value) {
-                const classType = item.done ? "todoList done" : "todoList"
+                const classType = item.done ? "done" : "";
                 return (
                     <li className={classType} 
                         key={item.id}

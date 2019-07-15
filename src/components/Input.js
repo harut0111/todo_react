@@ -37,12 +37,13 @@ export default function FilledTextFields(props) {
             inputProps={{'aria-label': 'Description', }}
             
             //set by me
+            multiline={true}
             autoFocus
             value={inputVal}
             onChange = {handleChange}
             onKeyDown={handleEnterPress}
           />
-
+  
           <Button 
             onClick={handleBtnClick} 
             variant="contained" color="primary" 

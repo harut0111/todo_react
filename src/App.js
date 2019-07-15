@@ -11,8 +11,8 @@ class App extends React.Component{
     this.state = {
       input: "",
       todolist: [
-        {id: Math.random(), value: "Hello World", done: false}, 
-        {id: Math.random(), value: "How are you?", done: true}
+        {id: Math.random(), value: "I'm gonna do...", done: false}, 
+        {id: Math.random(), value: "I've already done it", done: true}
       ]
     };
   }
@@ -58,7 +58,7 @@ class App extends React.Component{
     const {input, todolist} = this.state;
     return (
       <div className="App">
-        <h1>To Do List</h1>
+        <h1>To Do List...</h1>
 
         <div className="inputAndButton">
           <Input 
