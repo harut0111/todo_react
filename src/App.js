@@ -30,7 +30,7 @@ class App extends React.Component{
   addTodoItems = () => {
 
     const {input} = this.state;
-    const randomNum = String(Math.random());
+    const randomNum = String( new Date().getTime() );
     if(input.trim()) {
       
       // Add a new document in collection "listItem" on firebase
