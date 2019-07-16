@@ -31,29 +31,29 @@ class App extends React.Component{
 
     const {input} = this.state;
     const randomNum = String(Math.random());
-
-    // Add a new document in collection "listItem" on firebase
-    this.db.collection("listItem").doc(randomNum ).set({
-      value: input, 
-      done: false
-    })
-    .then(() => { 
-      //here we sure that data has been set on firebase
-      this.setState(state => ({
-        todolist: state.todolist.concat({
-          id: randomNum, 
-          value: input, 
-          done: false
-        }),
-        input: ""
-      }));
-      /////
-    })
-    .catch(function(error) {
-      console.error("Error writing document: ", error);
-    });
-    
-
+    if(input.trim()) {
+      
+      // Add a new document in collection "listItem" on firebase
+      this.db.collection("listItem").doc(randomNum ).set({
+        value: input, 
+        done: false
+      })
+      .then(() => { 
+        //here we sure that data has been set on firebase
+        this.setState(state => ({
+          todolist: state.todolist.concat({
+            id: randomNum, 
+            value: input, 
+            done: false
+          }),
+          input: ""
+        }));
+        /////
+      })
+      .catch(function(error) {
+        console.error("Error writing document: ", error);
+      });
+    }
   }
 
 
@@ -98,13 +98,16 @@ class App extends React.Component{
 
 
   /* this method called after createing component
-  so it is the best place to initialize firebase */
+  so it is the best place to get data from firebase */
 
   componentDidMount() {
     
-    const firebase = require("firebase");
+    /* const firebase = require("firebase");
     // Required for side-effects
-    require("firebase/firestore");
+    require("firebase/firestore"); */
+
+    const firebase = require('firebase/app');
+    require('firebase/firestore');
 
     firebase.initializeApp({
       apiKey: 'AIzaSyA-NlEgvbcRcsOT_ZP1j24kbZTKIsViHA4',
@@ -113,7 +116,7 @@ class App extends React.Component{
     });
     
     this.db = firebase.firestore();
-
+    // get date then set it on state which lead on re-render
     this.db.collection("listItem").get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
           this.setState(state => ({
@@ -124,12 +127,9 @@ class App extends React.Component{
             }),
           }));
           
-          /* console.log(`${doc.id} => ${doc.data().value} => ${doc.data().done}`); */
-         
+      /* console.log(`${doc.id} => ${doc.data().value} => ${doc.data().done}`); */
       });
     });
-
-    
   }
 
 

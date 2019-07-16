@@ -14,19 +14,17 @@ class Todolist extends React.Component {
         const { todoItems } = this.props;
    
         const items = todoItems.map(item => {
-            if(item.value) {
-                const classType = item.done ? "done" : "";
-                return (
-                    <li className={classType} 
-                        key={item.id}
-                        id={item.id}
-                        onClick={this.handleDoneAndRemove}
-                    >
-                        {item.value} <span onClick={this.handleDoneAndRemove}>X</span> 
-                    </li>
-                ) 
-            }
-            return null;
+            
+            const classType = item.done ? "done" : "";
+            return (
+                <li className={classType} 
+                    key={item.id}
+                    id={item.id}
+                    onClick={this.handleDoneAndRemove}
+                >
+                    {item.value} <span onClick={this.handleDoneAndRemove}>X</span> 
+                </li>
+            ) 
         })
 
         return (
