@@ -1,13 +1,14 @@
 import React from 'react';
+import SimpleTooltips from './deleteTooltip';
 
 class Todolist extends React.Component {
 
     handleDoneAndRemove = (e) => {
-
+        
         e.target.tagName === "LI" ? (
             this.props.onItemDone(e.target.id) 
             ) : (
-            this.props.onItemRemove(e.target.parentElement.id) );    
+            this.props.onItemRemove(e.currentTarget.id) );    
     }
     
     render() {
@@ -22,7 +23,7 @@ class Todolist extends React.Component {
                     id={item.id}
                     onClick={this.handleDoneAndRemove}
                 >
-                    {item.value} <span onClick={this.handleDoneAndRemove}>X</span> 
+                    {item.value} <SimpleTooltips onClick={this.handleDoneAndRemove}/>{/* <span >X</span> */} 
                 </li>
             ) 
         })

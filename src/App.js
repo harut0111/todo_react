@@ -4,6 +4,7 @@ import Input from './components/Input.js';
 import Todolist from './components/Todolist.js';
 
 
+
 class App extends React.Component{
 
   constructor(props) {
@@ -108,7 +109,7 @@ class App extends React.Component{
 
     const firebase = require('firebase/app');
     require('firebase/firestore');
-
+ 
     firebase.initializeApp({
       apiKey: 'AIzaSyA-NlEgvbcRcsOT_ZP1j24kbZTKIsViHA4',
       authDomain: 'todoapp-harut.firebaseapp.com',

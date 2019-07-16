@@ -79,6 +79,7 @@ li {
   background: yellow;
   border-radius: 15px;
   margin: 15px;
+  text-align: left;
 }
 
 li:hover {
