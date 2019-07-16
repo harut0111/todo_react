@@ -19,6 +19,7 @@
   border: 4px double rgb(0, 255, 0);
   border-radius: 15px;
   padding: 0;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -59,8 +60,9 @@ li span:hover {
 
 
 ul {
-  padding: 0;
+  padding: 5px 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 li {
@@ -72,13 +74,14 @@ li {
   font-size: 20px;
   padding: 10px;
   height: auto;
-  border: 1px dashed blue;
+  border: 1px solid white;
+  background: yellow;
   border-radius: 15px;
   margin: 15px;
 }
 
 li:hover {
-  border-color: red;
+  border: 1px solid red;
 }
 
 
