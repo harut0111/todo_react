@@ -10,9 +10,9 @@
 
 .App {
   text-align: center;
-  max-width: 370px;
+  max-width: 390px;
   min-width: 300px;
-  width: 80%;
+  width: 90%;
   border: 2px dashed red;
   margin: auto;
   position: relative;
