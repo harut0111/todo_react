@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import Input from './components/Input.js';
 import Todolist from './components/Todolist.js';
+import firebase from './config/FireBase.js';
 
 
 
@@ -103,19 +104,6 @@ class App extends React.Component{
 
   componentDidMount() {
     
-    /* const firebase = require("firebase");
-    // Required for side-effects
-    require("firebase/firestore"); */
-
-    const firebase = require('firebase/app');
-    require('firebase/firestore');
- 
-    firebase.initializeApp({
-      apiKey: 'AIzaSyA-NlEgvbcRcsOT_ZP1j24kbZTKIsViHA4',
-      authDomain: 'todoapp-harut.firebaseapp.com',
-      projectId: 'todoapp-harut'
-    });
-    
     this.db = firebase.firestore();
     // get date then set it on state which lead on re-render
     this.db.collection("listItem").get().then(querySnapshot => {
@@ -128,7 +116,7 @@ class App extends React.Component{
             }),
           }));
           
-      /* console.log(`${doc.id} => ${doc.data().value} => ${doc.data().done}`); */
+        //console.log(`${doc.id} => ${doc.data().value} => ${doc.data().done}`);
       });
     });
   }
