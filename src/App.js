@@ -13,8 +13,8 @@ class App extends React.Component{
     this.state = {
       input: "",
       todolist: [
-        /* {id: Math.random(), value: "I'm gonna do...", done: false}, 
-        {id: Math.random(), value: "I've already done it", done: true} */
+        // {id: Math.random(), value: "I'm gonna do...", done: false}, 
+        // {id: Math.random(), value: "I've already done it", done: true}
       ]
     };
   }
@@ -35,8 +35,8 @@ class App extends React.Component{
     const randomNum = String( new Date().getTime() );
     if(input.trim()) {
       
-      // Add a new document in collection "listItem" on firebase
-      this.db.collection("listItem").doc(randomNum ).set({
+      // Add a new document in collection "listItems" on firebase
+      this.db.collection("listItems").doc(randomNum ).set({
         value: input, 
         done: false
       })
@@ -68,7 +68,7 @@ class App extends React.Component{
     }); 
 
     //delete from firebase then change "todolist" state
-    this.db.collection("listItem").doc(key).delete().then(() => {
+    this.db.collection("listItems").doc(key).delete().then(() => {
       this.setState({todolist: newList});
     }).catch(function(error) {
       console.error("Error removing document: ", error);
@@ -87,7 +87,7 @@ class App extends React.Component{
     })
 
     // at first change on firebase for sure then "todolist" state
-    this.db.collection("listItem").doc(key).set({
+    this.db.collection("listItems").doc(key).set({
       done: itemDone
     },{ merge: true })
     .then(() => {
@@ -106,7 +106,7 @@ class App extends React.Component{
     
     this.db = firebase.firestore();
     // get date then set it on state which lead on re-render
-    this.db.collection("listItem").get().then(querySnapshot => {
+    this.db.collection("listItems").get().then(querySnapshot => {
       querySnapshot.forEach(doc => {
           this.setState(state => ({
             todolist: state.todolist.concat({
